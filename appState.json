@@ -8,7 +8,9 @@
         "type": "DIRECTORY",
         "isDirectory": true,
         "children": [
-          "06ced467-5330-4947-8ed0-92f57d60b87e"
+          "06ced467-5330-4947-8ed0-92f57d60b87e",
+          "b8d5a3b3-ff9b-4498-bde2-1becac737afe",
+          "4d2d4be2-cc78-4b78-ad2c-d4cf5630fd2d"
         ],
         "isRemovable": false,
         "filePath": "gh"
@@ -56,14 +58,49 @@
         "children": [],
         "isRemovable": false,
         "filePath": "main.py",
-        "code": "# This file is used to register all your cloud functions in GCP.\n# DO NOT EDIT/DELETE THIS, UNLESS YOU KNOW WHAT YOU ARE DOING.\n\n"
+        "code": "# This file is used to register all your cloud functions in GCP.\n# DO NOT EDIT/DELETE THIS, UNLESS YOU KNOW WHAT YOU ARE DOING.\n\nfrom gh.new import handler as ghnew"
+      },
+      "b8d5a3b3-ff9b-4498-bde2-1becac737afe": {
+        "id": "b8d5a3b3-ff9b-4498-bde2-1becac737afe",
+        "parent": "e5d9a3b7-d1b3-40cb-a84e-878201f44e5e",
+        "name": "new.py",
+        "type": "PYTHON_LAMBDA",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "gh/new.py",
+        "code": "def handler(request):\n    \n    return \"Successfully executed\"\n",
+        "config": {
+          "runtime": "python37",
+          "timeout": 60,
+          "memory": 128,
+          "triggerType": 0
+        },
+        "triggers": [
+          {
+            "resourceName": "http-trigger",
+            "config": {}
+          }
+        ]
+      },
+      "4d2d4be2-cc78-4b78-ad2c-d4cf5630fd2d": {
+        "id": "4d2d4be2-cc78-4b78-ad2c-d4cf5630fd2d",
+        "parent": "e5d9a3b7-d1b3-40cb-a84e-878201f44e5e",
+        "name": "__init__.py",
+        "type": "PYTHON_FILE",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "gh/__init__.py",
+        "code": ""
       }
     },
     "rootNode": "e5d9a3b7-d1b3-40cb-a84e-878201f44e5e",
     "openFiles": [
-      "06ced467-5330-4947-8ed0-92f57d60b87e"
+      "06ced467-5330-4947-8ed0-92f57d60b87e",
+      "b8d5a3b3-ff9b-4498-bde2-1becac737afe"
     ],
-    "currentFileId": "06ced467-5330-4947-8ed0-92f57d60b87e",
+    "currentFileId": "b8d5a3b3-ff9b-4498-bde2-1becac737afe",
     "resources": {
       "http-trigger": {
         "name": "http-trigger",
@@ -75,7 +112,16 @@
       "dialect": null,
       "definitions": null
     },
-    "envVariables": [],
+    "envVariables": [
+      {
+        "lambdaId": "b8d5a3b3-ff9b-4498-bde2-1becac737afe",
+        "varKey": "PYTHONPATH",
+        "varValue": "/var/runtime:/var/task/gh",
+        "shouldPersist": true,
+        "displayOnly": false,
+        "editable": true
+      }
+    ],
     "packageJSON": {
       "dependencies": {}
     }
@@ -87,7 +133,7 @@
     "projectRegion": "us-east1",
     "platform": "GCP",
     "platformRegions": {},
-    "lastSave": 1574757417644
+    "lastSave": 1574758134758
   },
   "VCS_STATE": {
     "provider": "GitHub",
